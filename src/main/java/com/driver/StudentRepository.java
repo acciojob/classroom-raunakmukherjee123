@@ -91,6 +91,15 @@ public class StudentRepository {
                 Teacher t = teacherMap.get(teacher);
                 t.setNumberOfStudents(0);
                 teacherMap.put(teacher, t);
+
+                // get the list of students associated with this teacher
+                List<String> students = teacherStudentMapping.get(teacher);
+
+                // remove each student from studentMap
+                for (String student : students) {
+                    studentMap.remove(student);
+                }
+
                 teacherStudentMapping.remove(teacher);
             }
         }
