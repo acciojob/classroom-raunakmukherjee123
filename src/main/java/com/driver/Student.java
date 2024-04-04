@@ -1,5 +1,4 @@
 package com.driver;
-
 public class Student {
 
     private String name;
@@ -39,3 +38,5 @@ public class Student {
         this.averageScore = averageScore;
     }
 }
+
+

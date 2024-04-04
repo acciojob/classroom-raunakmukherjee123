@@ -19,10 +19,12 @@ public class StudentRepository {
         this.teacherStudentMapping = new HashMap<String, List<String>>();
     }
 
+
     public void saveStudent(Student student){
         String name=student.getName();
         studentMap.put(name,student);
     }
+
 
     public void saveTeacher(Teacher teacher){
         String name=teacher.getName();
@@ -51,9 +53,6 @@ public class StudentRepository {
                 teacherMap.put(teacher,t);
                 teacherStudentMapping.put(teacher,al);
             }
-//            Teacher t=teacherMap.get(teacher);
-//            t.setNumberOfStudents(t.getNumberOfStudents()+1);
-//            teacherMap.put(teacher,t);
         }
     }
 
@@ -107,8 +106,8 @@ public class StudentRepository {
     public void deleteAllTeachers(){
         // your code goes here
         teacherStudentMapping.clear();
-        studentMap.clear();
-        teacherMap.clear();
+//        studentMap.clear();
+//        teacherMap.clear();
     }
 }
 
