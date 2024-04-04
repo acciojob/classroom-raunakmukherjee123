@@ -12,10 +12,10 @@ public class Teacher {
     {
 
     }
-    public Teacher(String name, int numberOfStudents, int age)
+    public Teacher(String name, int age)
     {
         this.name = name;
-        this.numberOfStudents = numberOfStudents;
+        this.numberOfStudents = 0;
         this.age = age;
     }
 

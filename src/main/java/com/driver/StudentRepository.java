@@ -38,13 +38,22 @@ public class StudentRepository {
             {
                 List<String> al=teacherStudentMapping.get(teacher);
                 al.add(student);
+                Teacher t=teacherMap.get(teacher);
+                t.setNumberOfStudents(t.getNumberOfStudents()+1);
+                teacherMap.put(teacher,t);
                 teacherStudentMapping.put(teacher,al);
             }
             else {
                 List<String> al=new ArrayList<>();
                 al.add(student);
+                Teacher t=teacherMap.get(teacher);
+                t.setNumberOfStudents(t.getNumberOfStudents()+1);
+                teacherMap.put(teacher,t);
                 teacherStudentMapping.put(teacher,al);
             }
+//            Teacher t=teacherMap.get(teacher);
+//            t.setNumberOfStudents(t.getNumberOfStudents()+1);
+//            teacherMap.put(teacher,t);
         }
     }
 
@@ -85,8 +94,13 @@ public class StudentRepository {
 
 
     public void deleteTeacher(String teacher) {
-        if (teacherStudentMapping.containsKey(teacher)) {
-            teacherStudentMapping.remove(teacher);
+        if (teacherMap.containsKey(teacher)) {
+            if (teacherStudentMapping.containsKey(teacher)) {
+                Teacher t = teacherMap.get(teacher);
+                t.setNumberOfStudents(0);
+                teacherMap.put(teacher, t);
+                teacherStudentMapping.remove(teacher);
+            }
         }
     }
 
