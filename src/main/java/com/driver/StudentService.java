@@ -11,39 +11,54 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-    public void addStudent(Student student){
+    public void addStudent(Student student)
+    {
         studentRepository.saveStudent(student);
     }
 
-    public void addTeacher(Teacher teacher){
+    public void addTeacher(Teacher teacher)
+    {
         studentRepository.saveTeacher(teacher);
+
     }
 
-    public void createStudentTeacherPair(String student, String teacher){
+    public void createStudentTeacherPair(String student, String teacher)
+    {
         studentRepository.saveStudentTeacherPair(student, teacher);
     }
 
-    public Student findStudent(String studentName){
+    public Student findStudent(String studentName)
+    {
         return studentRepository.findStudent(studentName);
+
     }
 
-    public Teacher findTeacher(String teacherName){
+    public Teacher findTeacher(String teacherName)
+    {
         return studentRepository.findTeacher(teacherName);
+
     }
 
-    public List<String> findStudentsFromTeacher(String teacher){
+    public List<String> findStudentsFromTeacher(String teacher)
+    {
         return studentRepository.findStudentsFromTeacher(teacher);
     }
 
-    public List<String> findAllStudents(){
+    public List<String> findAllStudents()
+    {
         return studentRepository.findAllStudents();
+
     }
 
-    public void deleteTeacher(String teacher){
+    public void deleteTeacher(String teacher)
+    {
         studentRepository.deleteTeacher(teacher);
+
     }
 
-    public void deleteAllTeachers(){
+    public void deleteAllTeachers()
+    {
         studentRepository.deleteAllTeachers();
+
     }
 }
