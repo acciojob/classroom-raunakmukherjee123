@@ -50,23 +50,29 @@ public class StudentRepository {
 
 
 
-    public Student findStudent(String student){
-       return studentMap.get(student);
+    public Student findStudent(String student) {
+        if (studentMap.containsKey(student)) {
+            return studentMap.get(student);
+        }
+        return null;
     }
 
-
-    public Teacher findTeacher(String teacher){
+    public Teacher findTeacher(String teacher) {
         // your code goes here
-        return teacherMap.get(teacher);
+        if (teacherMap.containsKey(teacher)) {
+            return teacherMap.get(teacher);
+        }
+        return null;
     }
-
-    public List<String> findStudentsFromTeacher(String teacher){
+    public List<String> findStudentsFromTeacher(String teacher) {
         // your code goes here
         // find student list corresponding to a teacher
-        List<String> al=teacherStudentMapping.get(teacher);
-        return al;
+        if (teacherStudentMapping.containsKey(teacher)) {
+            List<String> al = teacherStudentMapping.get(teacher);
+            return al;
+        }
+        return null;
     }
-
 
     public List<String> findAllStudents(){
         List<String> al=new ArrayList<>();
@@ -78,11 +84,11 @@ public class StudentRepository {
     }
 
 
-    public void deleteTeacher(String teacher){
-        // your code goes here
-        teacherStudentMapping.remove(teacher);
+    public void deleteTeacher(String teacher) {
+        if (teacherStudentMapping.containsKey(teacher)) {
+            teacherStudentMapping.remove(teacher);
+        }
     }
-
 
     public void deleteAllTeachers(){
         // your code goes here
